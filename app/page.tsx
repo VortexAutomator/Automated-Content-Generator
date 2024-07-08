@@ -4,10 +4,10 @@ import Image from 'next/image'; // Import the Image component
 import logo from '../public/SalesplayX.png'; // Import the logo image
 
 export default function Home() {
-  const [topic, setTopic] = useState('');
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [topic, setTopic] = useState<string>('');
+  const [content, setContent] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
   const handleGenerateContent = async () => {
     setLoading(true);
@@ -41,7 +41,6 @@ export default function Home() {
       }
     } catch (error) {
       console.error('Error generating content:', error);
-      // Assert the error type as Error
       setError((error as Error).message);
     } finally {
       setLoading(false);
@@ -50,7 +49,6 @@ export default function Home() {
 
   return (
     <div style={styles.container}>
-      {/* Add the logo image */}
       <Image src={logo} alt="SalesplayX Logo" width={134} height={134} style={styles.logo} />
       <div style={styles.contentBox}>
         <input
@@ -88,24 +86,24 @@ const styles: { [key: string]: CSSProperties } = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    background: 'white', // Change background to white
-    color: 'black', // Change text color to black for better contrast
+    background: 'white',
+    color: 'black',
     fontFamily: 'Arial, sans-serif',
-    marginBottom: '0.5in', // Add a margin at the bottom
+    marginBottom: '0.5in',
   },
   logo: {
-    marginBottom: '1rem', // Add some margin below the logo
+    marginBottom: '1rem',
   },
   contentBox: {
     width: '80%',
     height: '80%',
     padding: '2rem',
-    background: '#f0f0f0', // Change background to a light color for contrast
+    background: '#f0f0f0',
     borderRadius: '8px',
     boxShadow: '5px 5px 10px #ccc, -5px -5px 10px #fff',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center', // Center align children
+    alignItems: 'center',
   },
   input: {
     width: '100%',
@@ -124,20 +122,20 @@ const styles: { [key: string]: CSSProperties } = {
     marginBottom: '1rem',
     padding: '1rem',
     fontSize: '1rem',
-    color: '#333', // Change text color for better contrast
-    background: '#fff', // Change background to white
+    color: '#333',
+    background: '#fff',
     border: '1px solid #ccc',
     borderRadius: '4px',
     outline: 'none',
     resize: 'none',
     boxShadow: 'inset 2px 2px 5px #ddd, inset -2px -2px 5px #fff',
-    width: '100%', // Make the text area take the full width
-    display: 'block', // Ensure block display
-    whiteSpace: 'pre-wrap', // Ensure text wraps correctly
-    overflowWrap: 'break-word', // Ensure words wrap correctly
-    fontFamily: 'Arial, sans-serif', // Ensure correct font is applied
-    writingMode: 'horizontal-tb', // Ensure horizontal text direction
-    direction: 'ltr', // Ensure left-to-right text direction
+    width: '100%',
+    display: 'block',
+    whiteSpace: 'pre-wrap',
+    overflowWrap: 'break-word',
+    fontFamily: 'Arial, sans-serif',
+    writingMode: 'horizontal-tb',
+    direction: 'ltr',
   },
   button: {
     padding: '0.75rem 1.5rem',
