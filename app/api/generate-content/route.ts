@@ -42,6 +42,8 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error('Error:', error);
-    return NextResponse.json({ message: 'Internal server error', error: error.message }, { status: 500 });
+    // Use type assertion to cast error to Error
+    const errorMessage = (error as Error).message;
+    return NextResponse.json({ message: 'Internal server error', error: errorMessage }, { status: 500 });
   }
 }
