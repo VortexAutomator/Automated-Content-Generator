@@ -22,8 +22,6 @@ export default function Home() {
         body: JSON.stringify({ topic }),
       });
 
-      console.log('API request sent. Waiting for response...');
-      
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to generate content');
@@ -41,10 +39,10 @@ export default function Home() {
           setContent((prev) => prev + decoder.decode(value));
         }
       }
-
     } catch (error) {
       console.error('Error generating content:', error);
-      setError(error.message);
+      // Assert the error type as Error
+      setError((error as Error).message);
     } finally {
       setLoading(false);
     }
