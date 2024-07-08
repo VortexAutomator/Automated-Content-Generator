@@ -48,28 +48,30 @@ export default function Home() {
   };
 
   return (
-    <div style={styles.container}>
-      <Image src={logo} alt="SalesplayX Logo" width={134} height={134} style={styles.logo} />
-      <div style={styles.contentBox}>
+    <div style={styles.container as CSSProperties}>
+      <div style={styles.logoContainer as CSSProperties}>
+        <Image src={logo} alt="SalesplayX Logo" width={134} height={134} />
+      </div>
+      <div style={styles.contentBox as CSSProperties}>
         <input
           type="text"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Enter a topic"
-          style={styles.input}
+          style={styles.input as CSSProperties}
         />
         <textarea
           value={content}
           readOnly
           placeholder="Generated content will appear here..."
-          style={styles.textArea}
+          style={styles.textArea as CSSProperties}
           rows={20}
         />
-        <button onClick={handleGenerateContent} disabled={loading} style={styles.button}>
+        <button onClick={handleGenerateContent} disabled={loading} style={styles.button as CSSProperties}>
           {loading ? 'Generating...' : 'Generate'}
         </button>
         {error && (
-          <div style={styles.error}>
+          <div style={styles.error as CSSProperties}>
             <h2>Error:</h2>
             <p>{error}</p>
           </div>
@@ -82,7 +84,7 @@ export default function Home() {
 const styles: { [key: string]: CSSProperties } = {
   container: {
     display: 'flex',
-    flexDirection: 'column' as 'column',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
@@ -91,7 +93,7 @@ const styles: { [key: string]: CSSProperties } = {
     fontFamily: 'Arial, sans-serif',
     marginBottom: '0.5in',
   },
-  logo: {
+  logoContainer: {
     marginBottom: '1rem',
   },
   contentBox: {
@@ -102,7 +104,7 @@ const styles: { [key: string]: CSSProperties } = {
     borderRadius: '8px',
     boxShadow: '5px 5px 10px #ccc, -5px -5px 10px #fff',
     display: 'flex',
-    flexDirection: 'column' as 'column',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   input: {
