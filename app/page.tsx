@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, CSSProperties } from 'react';
 import Image from 'next/image'; // Import the Image component
 import logo from '../public/SalesplayX.png'; // Import the logo image
 
@@ -81,7 +81,7 @@ export default function Home() {
   );
 }
 
-const styles = {
+const styles: { [key: string]: CSSProperties } = {
   container: {
     display: 'flex',
     flexDirection: 'column',
