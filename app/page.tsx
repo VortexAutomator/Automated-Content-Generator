@@ -82,7 +82,7 @@ export default function Home() {
 const styles: { [key: string]: CSSProperties } = {
   container: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
@@ -102,7 +102,7 @@ const styles: { [key: string]: CSSProperties } = {
     borderRadius: '8px',
     boxShadow: '5px 5px 10px #ccc, -5px -5px 10px #fff',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as 'column',
     alignItems: 'center',
   },
   input: {
